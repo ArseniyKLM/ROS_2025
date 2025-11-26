@@ -1,0 +1,7 @@
+<launch>
+	<arg name="topic_name" default="default_topic" />
+	
+	<node name="listener_cpp" pkg="rospy_tutorials" type="listener.py" output="screen">
+		<param name="topic_name" value="$(arg topic_name)" />
+	</node>
+</launch>

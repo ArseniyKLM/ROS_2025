@@ -1,0 +1,15 @@
+<launch>
+    <arg name="topic_name" default="default_topic" />
+
+    <node name="sender" pkg="study_pkg" type="sender.py" output="screen">
+        <param name="topic_name" value="$(arg topic_name)" />
+    </node>
+    
+    <node name="receiver" pkg="study_pkg" type="receiver.py" output="screen">
+        <param name="topic_name" value="$(arg topic_name)" />
+    </node>
+    
+    <include file="$(find study_pkg)/scripts_lab3/another_one.launch">
+        <arg name="topic_name" value="$(arg topic_name)" />
+    </include>
+</launch>
